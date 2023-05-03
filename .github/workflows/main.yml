@@ -28,6 +28,6 @@ jobs:
           git config --global user.email "janisflores360@gmail.com"
           git config --global user.name "Hunter-janis"
           cd build
-          git checkout buildbranch
+          git branch buildbranch
           git commit -a -m "new build"
           git push origin buildbranch
