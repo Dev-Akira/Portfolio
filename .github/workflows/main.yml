@@ -23,7 +23,7 @@ jobs:
         run: |
           choco install rsync
       - name: Deploy to GitHub Pages
-        uses: vercel/github-action
+        uses: peaceiris/actions-buildbranch
         with:
           branch: buildbranch
           folder: build
