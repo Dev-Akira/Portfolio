@@ -20,7 +20,9 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Install rsync
-        run: sudo apt-get install rsync -y
+        run: |
+        sudo apt-get update
+        sudo apt-get install rsync -y
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
