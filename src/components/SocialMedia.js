@@ -29,6 +29,16 @@ function SocialMedia() {
           <AiFillInstagram className="social-icon" />
         </a>
       </li>
+      <li className="social-icons">
+        <a
+          href="https://www.instagram.com/Hunter-janis"
+          target="_blank"
+          rel="noreferrer"
+          className="icon-colour home-social-icons"
+        >
+          <AiFillInstagram className="social-icon" />
+        </a>
+      </li>
     </ul>
   );
 }
