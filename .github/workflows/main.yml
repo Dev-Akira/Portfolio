@@ -8,6 +8,9 @@ on:
 jobs:
   deploy:
     runs-on: windows-latest
+
+    needs: [install-rsync]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,16 +22,11 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
-      - name: JamesIves
-        run: npm install @jamesives/github-pages-deploy-action@4.4.1
-      - name: Install rsync
-        run: |
-          choco install rsync
+      # - name: Install rsync
+      #   run: |
+      #     choco install rsync
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.4.1
-        with:
-          branch: buildbranch
-          folder: build
+        run: rsync -r --delete --exclude=.git --exclude=node_modules ./build/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
         # run: |
         #   git config --global user.email "janisflores360@gmail.com"
         #   git config --global user.name "Hunter-janis"
