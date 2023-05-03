@@ -16,7 +16,7 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Deploy to GitHub Pages
-        uses: Huner-janis/github-pages-deploy-action@1.1.1
+        uses: Huner-janis/Portfolio@4.1.1
         with:
           branch: buildbranch
           folder: build
