@@ -1,0 +1,20 @@
+name: Install rsync
+
+on: [push]
+
+jobs:
+  install-rsync:
+    runs-on: windows-latest
+    steps:
+    - name: Download and extract rsync
+      run: |
+        Invoke-WebRequest -Uri "https://www.itefix.net/dl/free-software/rsync-3.2.3-64-setup.exe" -OutFile "rsync.exe"
+        Start-Process -FilePath "rsync.exe" -ArgumentList "/S" -Wait
+        Remove-Item -Path "rsync.exe"
+      shell: powershell
+    - name: Add rsync to PATH
+      run: |
+        $rsyncPath = "${{ github.workspace }}\rsync"
+        $env:Path += ";$rsyncPath"
+        Set-ItemProperty -Path "HKCU:\Environment" -Name "Path" -Value $env:Path
+      shell: powershell
