@@ -19,9 +19,9 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
-      # - name: Install rsync
-      #   run: |
-      #     choco install rsync
+      - name: Install rsync
+        run: |
+          choco install rsync
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.2.1
         with:
