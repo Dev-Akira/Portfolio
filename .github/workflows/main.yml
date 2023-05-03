@@ -19,11 +19,13 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
+      - name: JamesIves
+        run: npm install @jamesives/github-pages-deploy-action@4.4.1
       - name: Install rsync
         run: |
           choco install rsync
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.2.1
+        uses: JamesIves/github-pages-deploy-action@4.4.1
         with:
           branch: buildbranch
           folder: build
