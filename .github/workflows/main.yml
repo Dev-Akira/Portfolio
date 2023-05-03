@@ -31,7 +31,6 @@ jobs:
           git config --global user.email "janisflores360@gmail.com"
           git config --global user.name "Hunter-janis"
           git checkout --orphan  buildbranch
-          del /s /q *.
           git commit -m "Remove old build files"
           git push origin buildbranch --force-with-lease
           git checkout master
